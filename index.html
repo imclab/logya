@@ -1,51 +1,30 @@
-<p>Logya is a static Web site generator written in Python designed to be easy
-to use and flexible.</p>
-<h1>Features</h1>
-<ul>
-<li>Create responsive static Web sites</li>
-<li>Built-in Web server with info level logging for immediate editing feedback</li>
-<li>Commands for site creation, generation, and serving</li>
-<li>Automatic index generation in created folders</li>
-<li>Site configuration</li>
-</ul>
-<h1>Requirements</h1>
-<ul>
-<li><a href="http://python.org/">Python 2.7</a></li>
-<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-</ul>
-<h1>Directory Structure</h1>
-<h2>Logya Source</h2>
-<ul>
-<li>logya       all logya source files needed for running<ul>
-<li>ext       extension modules</li>
-<li>sites     barebone example Web sites</li>
-</ul>
-</li>
-<li>tests</li>
-</ul>
-<h2>Site Source</h2>
-<p>The following folders and files are required for generating a Web site with Logya</p>
-<ul>
-<li>content</li>
-<li>static</li>
-<li>templates</li>
-<li>site.cfg</li>
-</ul>
-<h1>Roadmap</h1>
-<h2>Version 0.6</h2>
-<ul>
-<li>make logya docs the example site</li>
-</ul>
-<h2>Version 0.7</h2>
-<ul>
-<li>make distribute work</li>
-</ul>
-<h2>Further Plans</h2>
-<ul>
-<li>Add logya extension create name command</li>
-<li>RSS feed generation</li>
-<li>XML and HTML sitemap generation</li>
-<li>minify and concatenate CSS and JS</li>
-<li>configurable plugins</li>
-<li>content snippets that are replaced when generating document</li>
-</ul>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Logya Documentation</title>
+  </head>
+
+  <body>
+    <div class="container">
+
+      
+<h1>Logya Documentation</h1>
+<h2>Installation</h2>
+
+<h2>Getting Started</h2>
+
+<p>Create a starter site:</p>
+<pre>logya create mysite</pre>
+
+<p>Generate files to deploy:</p>
+<pre>logya generate</pre>
+
+<h3>Serve site from deploy directory</h3>
+<pre>logya serve</pre>
+
+
+    </div> <!-- /container -->
+
+  </body>
+</html>
