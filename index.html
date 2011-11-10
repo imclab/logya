@@ -15,6 +15,7 @@
     <header id="header" class="clearfix">
         <div id="logo"><a href="http://yaph.github.com/logya/" title="Logya a static Web site generator"><img src="http://yaph.github.com/logya/img/logya.png" alt="Logya Logo"></a></div>
         <div id="subtitle">Generate Static Web Sites</div>
+        <!-- include 'nav.html' -->
         <div id="github_ribbon">
             <a href="https://github.com/yaph/logya"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/abad93f42020b733148435e2cd92ce15c542d320/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub"></a>
         </div>
@@ -23,13 +24,18 @@
     <div id="content">
         
 <h1>Logya Documentation</h1>
+
 <p>Logya is a command line tool to generate static Web sites, designed to be easy to use and flexible.</p>
 <p>Content documents contain header information like url, title, scripts and style sheets to use and a body marked up with HTML, they are stored in .html files.</p>
 <p>A site's layout and design are fully controlled by the user, templates are rendered with jinja2.</p>
 <p>Logya provides a serve command to immediately view changes in the browser when source documents and static files were changed.</p>
 
 <h2>Installation</h2>
-<p>Logya is an open source Python application that can be <a href="https://github.com/yaph/logya/downloads">downloaded from</a> and <a href="https://github.com/yaph/logya">forked on Github</a>.</p>
+<p>Logya is an open source Python application that can be <a href="https://github.com/yaph/logya/downloads">downloaded from</a> and <a href="https://github.com/yaph/logya">forked on Github</a>. To install it with pip run:</p>
+<pre>sudo pip install logya</pre>
+
+<p>If you downloaded the source files, you can install Logya from the project's root directory with the following command:</p>
+<pre>sudo python setup.py install</pre>
 
 <h2>Getting Started</h2>
 
@@ -54,7 +60,33 @@
 
 <h2>Document Structure</h2>
 <p>Documents are basically html files containing the content of a page with header information to specify title, url, description, scripts and style sheets to include and self defined variables that can be accessed in templates.</p>
+<p>The header of this file looks like:</p>
+<pre>
+url: /
+title: Logya Documentation
+template: post.html
+</pre>
+<p>The content is what you read right now ;)</p>
 
+<h2>Configuration Settings</h2>
+<p>Below you find configuration sections and settings:</p>
+
+<h3>[site] section</h3>
+<dl>
+  <dt>base_path</dt>
+    <dd>If set will be available in all templates as base_path variable.</dd>
+</dl>
+
+<h3>[templates] section</h3>
+<dl>
+  <dt>index</dt>
+    <dd>The template to use for generated index.html files. If not set, indexes won't be created.</dd>
+  <dt>doc</dt>
+    <dd>The template to use for generated content documents. If not set, the document won't be created.</dd>
+</dl>
+
+<h3>[extensions] section</h3>
+<p>Currently this section is not supported. I consider using it for turning extensions on and off.</p>
 <h2>Development Tips</h2>
 <p>The following tips are intended for people developing logya application code.</p>
 <h3>Create a command that points to the development source:</h3>
@@ -63,6 +95,9 @@
 
 <h2>Credits</h2>
 <p>Logya is being developed by <a href="http://www.ramiro.org/">Ramiro Gómez</a>. The Logya logo was created using the <a href="http://www.iconfinder.com/icondetails/61632/512/internet_earth_icon">Earth, Internet icon</a> by <a href="http://www.iconeden.com/">IconEden</a>.</p>
+
+
+    
 
 
     </div>
