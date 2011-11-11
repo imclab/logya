@@ -10,23 +10,37 @@
   </head>
 
   <body>
-    <div id="wrapper">
-
-    <header id="header" class="clearfix">
-        <div id="logo"><a href="http://yaph.github.com/logya/" title="Logya a static Web site generator"><img src="http://yaph.github.com/logya/img/logya.png" alt="Logya Logo"></a></div>
-        <div id="subtitle">Generate Static Web Sites</div>
-        <!-- include 'nav.html' -->
-        <div id="github_ribbon">
-            <a href="https://github.com/yaph/logya"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/abad93f42020b733148435e2cd92ce15c542d320/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub"></a>
-        </div>
-    </header>
-
-    <div id="content">
+    <div id="top">
         
+<nav class="box">
+<ul id="nav">
+<li><a href="http://yaph.github.com/logya/">Home</a></li>
+
+<li><a href="http://yaph.github.com/logya/recipes/">recipes</a>
+    <ul class="subnav">
+        
+            <li><a href="http://yaph.github.com/logya/recipes/conditional-comments-in-documents/">Conditional Comments in Documents</a></li>
+        
+    </ul>
+</li>
+
+</ul>
+</nav>
+
+    </div>
+
+    <div id="wrapper">
+      <header id="header" class="box clearfix">
+          <div id="logo"><a href="http://yaph.github.com/logya/" title="Logya a static Web site generator"><img src="http://yaph.github.com/logya/img/logya.png" alt="Logya Logo"></a></div>
+          <div id="subtitle">Generate Static Web Sites</div>
+      </header>
+  
+      <div id="content" class="box">
+          
 <h1>Conditional Comments in Documents</h1>
 
 <p>Add a document header field <code>comments</code>:</p>
-<pre>comments: 0</pre>
+<pre>comments: 1</pre>
 
 <p>In the template check for the value of the comment field</p>
 <pre>
@@ -35,28 +49,35 @@
 {% endif %}
 </pre>
 
+
+    
+        <hr>
+        This is the comment area to include an external comment system like Disqus or Facebook comments.
+        <hr>
     
 
 
-    </div>
-
-    <footer id="footer">
-    <p>Logya documentation site created with <a href="https://github.com/yaph/logya">Logya</a>.</p>
-
-    <div><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a></div>    
-    <div><g:plusone annotation="inline"></g:plusone></div>
-    <div><fb:like send="true" width="450" show_faces="true"></fb:like></div>
-
-    
-
-    </footer>
+      </div>
+  
+      <footer id="footer">
+        <p>Logya documentation site created with <a href="https://github.com/yaph/logya">Logya</a>.</p>
+        <div><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a></div>
+        <div><g:plusone annotation="inline"></g:plusone></div>
+        <div><fb:like send="true" width="450" show_faces="true"></fb:like></div>
+      </footer>
     </div> <!-- /wrapper -->
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-    <script type="text/javascript" src="http://yaph.github.com/logya/js/jquery.headerindex.js"></script>
-    <script type="text/javascript">$('#content').headerIndex({'exclude':['h1']});</script>
+<script type="text/javascript" src="http://yaph.github.com/logya/js/jquery.headerindex.js"></script>
+<script type="text/javascript">
+  $('#content').headerIndex({exclude:['h1'], topLink:true, topLinkText:'Jump up'});
+</script>
 
-    <script type="text/javascript">
+    <div id="github_ribbon">
+  <a href="https://github.com/yaph/logya"><img style="position: absolute; top: 0; right: 0; border: 0;z-index:10;" src="https://a248.e.akamai.net/assets.github.com/img/abad93f42020b733148435e2cd92ce15c542d320/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub"></a>
+</div>
+
+<script type="text/javascript">
   (function() {
     var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
     po.src = 'https://apis.google.com/js/plusone.js';
