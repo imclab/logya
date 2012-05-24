@@ -59,6 +59,7 @@
 <li>Automatic generation of document indexes in created directories</li>
 <li>Site configuration</li>
 <li>No server side scripting security issues</li>
+<li>RSS feed generation for directories</li>
 </ul>
 
 <h2>Requirements</h2>
@@ -66,6 +67,7 @@
 <li><a href="http://python.org/">Python 2.7</a></li>
 <li><a href="http://jinja.pocoo.org/docs">Jinja2</a></li>
 <li><a href="http://pyyaml.org/">PyYAML</a></li>
+<li><a href="http://www.dalkescientific.com/Python/PyRSS2Gen.html">PyRSS2Gen</a></li>
 </ul>
 
 <h2>Installation</h2>
@@ -120,15 +122,34 @@ created: 2012-03-18 13:59:16
 </pre>
 <p>The header is in <a href="http://yaml.org/">YAML</a> format. It starts and ends with 3 dashes. The remaining part of the document is treated as the content that goes in the body of the created HTML page. This content can be marked up with any HTML tags that can be in the body of an HTML document.</p>
 <h3>Document Header</h3>
-<p>Each document must specify the <code>url</code> attribute in the header, all other attributes are optional. Attribute values can range from simple strings to nested data structures that are automatically available in templates.</p>
+<p>Each document must specify the <code>url</code> and <code>title</code> attributes in the header, all other attributes are optional. Attribute values can range from simple strings to nested data structures that are automatically available in templates.</p>
 <p>The only exception with a pre-defined value format is the <code>created</code> attribute. If you set it, it must adhere to the format <code>YYYY-MM-DDTHH:MM:SS</code> without surrounding quotes as shown in the example above. If you don't set the creation time in a document header, the file modification time will be used for sorting documents in indexes.</p>
+
+<h3>Tags</h3>
+<p>You can tag documents using the <code>tags</code> attribute, which is assigned a list of comma separated tags, for example:</p>
+<pre>
+tags: [example tag 1, example tag 2, example tag 3]
+</pre>
+<p>If you specify document tags the <code>tags</code> sub-directory will be created containing indexes with links to the corresponding documents, in this case don't create document URLs that start with <code>/tags/</code>.</p>
+<p>To create a list of links to these index pages from a post you can access the <code>tags_links</code> template variable, which is populated automatically and mustn't be specified manually in the document header:</p>
+<pre>
+{% if tag_links %}
+  {% for url, anchor in tag_links %}
+    &lt;span class=&quot;tag&quot;&gt;&lt;a href=&quot;{{url|e}}&quot;&gt;{{anchor|e}}&lt;/a&gt;&lt;/span&gt;
+  {% endfor %}
+{% endif %}
+</pre>
+
 <h2>Configuration Settings</h2>
 <p>Below you find configuration sections and settings:</p>
 
 <h3>[site] section</h3>
+<p>All settings in this section will be available to all templates, so names for configuration variables mustn't be used as names in document headers.</dd>
 <dl>
   <dt>base_path</dt>
-    <dd>If set will be available in all templates as base_path variable.</dd>
+    <dd>Use this if your site is located within a sub directory.</dd>
+  <dt>base_url</dt>
+    <dd>If set RSS feeds will be generated for each sub directory content directory.</dd>
 </dl>
 
 <h3>[templates] section</h3>
@@ -151,10 +172,6 @@ created: 2012-03-18 13:59:16
 <p>Logya is being developed by <a href="http://www.ramiro.org/">Ramiro Gómez</a>. The Logya logo was created using the <a href="http://www.iconfinder.com/icondetails/61632/512/internet_earth_icon">Earth, Internet icon</a> by <a href="http://www.iconeden.com/">IconEden</a>.</p>
 
     
-        <hr>
-        This is the comment area to include an external comment system like Disqus or Facebook comments.
-        <hr>
-    
 
 
       </div>
@@ -167,14 +184,14 @@ created: 2012-03-18 13:59:16
       </footer>
     </div> <!-- /wrapper -->
 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript" src="http://yaph.github.com/logya/js/jquery.headerindex.js"></script>
 <script type="text/javascript">
   $('#content').headerIndex({exclude:['h1'], topLink:true, topLinkText:'Jump up'});
 </script>
 
     <div id="github_ribbon">
-  <a href="https://github.com/yaph/logya"><img style="position: absolute; top: 0; right: 0; border: 0;z-index:10;" src="https://a248.e.akamai.net/assets.github.com/img/abad93f42020b733148435e2cd92ce15c542d320/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub"></a>
+  <a href="https://github.com/yaph/logya"><img style="position: absolute; top: 0; right: 0; border: 0;z-index:10;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
 </div>
 
 <script type="text/javascript">
