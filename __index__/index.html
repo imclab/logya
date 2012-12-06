@@ -2,7 +2,7 @@
 <html xmlns:fb="http://ogp.me/ns/fb#" lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Conditional Comments in Documents</title>
+    <title>__Index__</title>
     <link rel="stylesheet" href="http://localhost:8080/css/style.css">
     <!--[if lt IE 9]>
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -37,27 +37,14 @@
   
       <div id="content" class="box">
           
-<h1>Conditional Comments in Documents</h1>
+<h1 class="index_heading">__index__</h1>
+<ul class="index_docs">
 
-<p>Add a document header field <code>comments</code> and give it a value to enable comments for a document:</p>
-<pre>comments: 1</pre>
-<p>If you don't want comments on particular posts just omit the <code>comments</code> header field or don't give it a value:</p>
-<pre>comments:</pre>
+    <li><a href="http://localhost:8080/">Logya Documentation</a></li>
 
-<p>In the document's template check for the value of the <code>comments</code> field and add the code for an external comment systems like Disqus or Facebook comments:</p>
-<pre>
-{% if comments %}
-    comments go here
-{% endif %}
-</pre>
-<p>The above code checks that the <code>comments</code> variable exists and has a value, so this will also show the comments section if you enter a value of 0 in the document header.</p>
+    <li><a href="http://localhost:8080/recipes/conditional-comments-in-documents/">Conditional Comments in Documents</a></li>
 
-    
-        <hr>
-        This is the comment area to include an external comment system like Disqus or Facebook comments.
-        <hr>
-    
-
+</ul>
 
       </div>
   
