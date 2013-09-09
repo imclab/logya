@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+<channel><title>RSS Feed</title>
+    <link>http://yaph.github.io/logya/rss.xml</link>
+    <description></description>
+    <lastBuildDate>Tue, 10 Sep 2013 01:02:18 </lastBuildDate>
+    <generator>Logya</generator>
+    <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+    
+    <item>
+        <title>Welcome to Logya</title>
+        <link>http://yaph.github.io/logya/</link>
+        <description></description>
+        <guid>http://yaph.github.io/logya/</guid>
+        <pubDate>Mon, 09 Sep 2013 22:36:22 </pubDate>
+    </item>
+    
+</channel></rss>
